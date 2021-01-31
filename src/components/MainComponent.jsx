@@ -122,7 +122,10 @@ function MainComponent() {
         setSelectedTopic(event.target.vale);
     }
 
-    const startChat = (name) => { alert("Start chat function, with "+name); } 
+    const startChat = (name) => { 
+        // alert("Start chat function, with "+name); 
+        history.push('/chats/7pZoVO41Vs6ZvBnl8AFi');
+    } 
 
 
     if(loading) {
@@ -137,7 +140,7 @@ function MainComponent() {
                 <img src={mainImage} alt="" style={mainStyle}></img>
                 <button onClick={handleLogoutClick} style={lButtonLoc}>Log out</button>
                 <ul style={ULLoc}>
-                    {userDoc.contacts.map((contact, idx) => {
+                    {userDoc.contacts && userDoc.contacts.map((contact, idx) => {
                         return (
                             <li key={idx}>
                                 <button className='buttonStyle' 
