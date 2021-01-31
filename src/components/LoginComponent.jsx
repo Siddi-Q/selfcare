@@ -6,6 +6,7 @@ import { useAuth } from '../contexts/AuthContext';
 import '../styles/Shared.css'
 import '../styles/LoginComponent.css'
 import loginImage from '../images/Login.png'
+import loginBackground from '../images/background1.mp4'
 
 const loginStyle = {
     position: 'absolute',
@@ -66,9 +67,9 @@ function LoginComponent() {
  
     return (
         <div>
-            {/* <video autoPlay muted loop id="background" className='bgStyle'>
-                <source src={backgroundMp4} type="video/mp4"></source>
-            </video> */}
+            <video autoPlay muted loop id="background" className='bgStyle' style={{width:'100%',height:'100%',objectFit:'cover'}}>
+                <source src={loginBackground} type="video/mp4"></source>
+            </video>
             <img src={loginImage} alt="" style={loginStyle}></img>
             <form onSubmit={handleSubmit}>
                 <input required type="email" 
