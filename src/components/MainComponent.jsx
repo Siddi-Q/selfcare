@@ -138,7 +138,8 @@ function MainComponent() {
     } 
 
     const handleEditSchedule = (event) => {
-        alert("Route to calendar component here"); //TODO
+        // alert("Route to calendar component here"); //TODO
+        history.push('/calendar');
     }
 
 

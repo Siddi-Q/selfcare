@@ -10,6 +10,9 @@ import banner from '../images/calendarBanner.png'
 import overlay from '../images/transOverlay.png'
 import '../styles/Shared.css'
 
+import { useHistory } from 'react-router-dom';
+
+
 const selectStyle = {
     position: 'relative',
     display: 'block',
@@ -67,6 +70,9 @@ function CalendarComponent(){
     const [userTopic, setUserTopic] = useState('');                                         //TODO: Load saved user topic from database
     const [topicsList, setTopicsList] = useState(["Group Meditation", "Group Mediation"]);  //TODO: Load list of topics from database
     const calendarComponentRef = React.createRef();
+    const history = useHistory();
+
+
     const handleDateClick = event => {
         const eventName = prompt('Enter name of event')
         const timeStart = prompt('Enter start time in 24hr format')
@@ -109,30 +115,38 @@ function CalendarComponent(){
         }
         //TODO: Back button => Return user to home, don't save changes
         const handleBack = (event) => {
-            alert("Back button function");
+            history.push('/home');
+            // alert("Back button function");
         }
-    return(<div>
-        <video autoPlay muted loop id="background" className='bgStyle' style={{width:'100%',height:'100%',objectFit:'cover'}}>
+    return(
+        <div>
+            <video autoPlay muted loop id="background" className='bgStyle' style={{width:'100%',height:'100%',objectFit:'cover'}}>
                 <source src={calendarBackground} type="video/mp4"></source>
-        </video>
-        <img src={overlay} alt="" style={overlayStyle} className='bgStyle'></img>
-        <img src={banner} alt="" style={bannerStyle}></img>
-        <select onChange={setUserTopic} style={selectStyle}> { topicsList.map(populateTopics, this) } </select>
-        <FullCalendar
-            defaultView="dayGridMonth"
-            header={{
-              left: "prev,next today",
-              center: "title",
-              right: "dayGridMonth,timeGridWeek,timeGridDay,listWeek"
-            }}
-            plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
-            ref={calendarComponentRef}
-            weekends={calendarWeekends}
-            events={calendarEvents}
-            dateClick={handleDateClick}
-          />
-        <input type="image" src={backButton} onClick={handleBack} style={backStyle}></input>
-        <input type="image" src={submitButton} onClick={handleSubmit} style={submitStyle}></input>
-    </div>);
+            </video>
+            <img src={overlay} alt="" style={overlayStyle} className='bgStyle'></img>
+            <img src={banner} alt="" style={bannerStyle}></img>
+            <select onChange={setUserTopic} style={selectStyle}> { topicsList.map(populateTopics, this) } </select>
+            {/*
+                <select onChange={handleTopicChange} value={selectedTopic} style={selectStyle}>
+                        {topics.map((topic, idx) => <option key={idx} value={topic} className='selectOption'>{topic}</option> )}
+                </select>*/}
+
+            <FullCalendar
+                defaultView="dayGridMonth"
+                header={{
+                left: "prev,next today",
+                center: "title",
+                right: "dayGridMonth,timeGridWeek,timeGridDay,listWeek"
+                }}
+                plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
+                ref={calendarComponentRef}
+                weekends={calendarWeekends}
+                events={calendarEvents}
+                dateClick={handleDateClick}
+            />
+            <input type="image" src={backButton} onClick={handleBack} style={backStyle}></input>
+            <input type="image" src={submitButton} onClick={handleSubmit} style={submitStyle}></input>
+        </div>
+    );
 }
 export default CalendarComponent;
