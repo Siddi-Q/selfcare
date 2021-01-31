@@ -1,0 +1,30 @@
+.buttonStyle {
+    background: transparent;
+    border: none;
+    color: white;
+    font-family: Bradley Hand, cursive ;
+    font-size: 2vw;
+    text-align: center;
+}
+.icon {
+    max-width: 3vw;
+    max-height: 3vw;
+    margin-left: 12px;
+}
+.calStyle {
+    background: transparent;
+    border: none;
+    color: white;
+    font-family: Bradley Hand, cursive ;
+    font-size: 3vw;
+    text-align: center;
+}
+.notification {
+    font-family: Bradley Hand, cursive ;
+    font-size: 2vw;
+    text-align: center;
+}
+.selectOption {
+    background-color: black;
+    color: white;
+}
