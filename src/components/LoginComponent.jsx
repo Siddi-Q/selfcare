@@ -6,6 +6,7 @@ import { useAuth } from '../contexts/AuthContext';
 import '../styles/Shared.css'
 import '../styles/LoginComponent.css'
 import loginImage from '../images/Login.png'
+import loginImage2 from '../images/Login2.png'
 import loginBackground from '../images/background1.mp4'
 
 const loginStyle = {
@@ -14,6 +15,13 @@ const loginStyle = {
     height: '50%',
     left: '10%',
     top: '25%'
+}
+const loginStyle2 = {
+    position: 'absolute',
+    width: '30%',
+    height: '40%',
+    right: '20%',
+    top: '20%'
 }
 const uInputLoc = {
     position: 'absolute',
@@ -71,6 +79,7 @@ function LoginComponent() {
                 <source src={loginBackground} type="video/mp4"></source>
             </video>
             <img src={loginImage} alt="" style={loginStyle}></img>
+            <img src={loginImage2} alt="" style={loginStyle2}></img>
             <form onSubmit={handleSubmit}>
                 <input required type="email" 
                     onChange={handleEmailChange} value={email} 

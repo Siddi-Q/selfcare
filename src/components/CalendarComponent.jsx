@@ -8,6 +8,7 @@ import submitButton from '../images/submitButton.png'
 import backButton from '../images/backButton.png'
 import banner from '../images/calendarBanner.png'
 import overlay from '../images/transOverlay.png'
+import '../styles/Shared.css'
 
 const selectStyle = {
     position: 'relative',
@@ -15,7 +16,7 @@ const selectStyle = {
     background: 'transparent',
     textAlign: 'center',
     fontSize: '1.5vw',
-    fontFamily: 'cursive',
+    fontFamily: 'nothing',
     color: 'black',
     width: '20%',
     height: '5%',

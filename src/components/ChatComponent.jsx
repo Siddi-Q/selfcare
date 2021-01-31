@@ -11,6 +11,7 @@ import '../styles/Shared.css'
 import '../styles/LoginComponent.css'
 import '../styles/ChatComponent.css'
 import chatUI from '../images/chatUI.png'
+import chatBackground from '../images/background4.mp4'
 
 const UIStyle = {
     position: 'absolute',
@@ -87,9 +88,9 @@ function ChatComponent(props) {
     }
     return (
         <div>
-            {/* <video autoPlay muted loop id="background" className='bgStyle'>
-                <source src={background} type="video/mp4"></source>
-            </video> */}
+            <video autoPlay muted loop id="background" className='bgStyle' style={{width:'100%',height:'100%',objectFit:'cover'}}>
+                <source src={chatBackground} type="video/mp4"></source>
+            </video>
             <img src={chatUI} alt="" style={UIStyle}></img>
             <input type="text" value={message} onChange={handleMessageChange} className='inputClass' style={messageInputLoc} ></input>
             <input type="reset" onClick={send} className='inputClass' style={sendBtnLoc}></input>

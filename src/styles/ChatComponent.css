@@ -1,5 +1,9 @@
+@font-face {
+    font-family: 'nothing';
+    src: local('nothing'), url(./NothingYouCouldDo-Regular.ttf) format('truetype');
+}
 .listItem {
     color: white;
-    font-family: Bradley Hand, cursive ;
+    font-family: 'nothing';
     font-size: 2vw;
 }

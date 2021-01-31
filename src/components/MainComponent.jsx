@@ -8,9 +8,10 @@ import { useDocumentDataOnce } from  'react-firebase-hooks/firestore';
 
 import '../styles/Shared.css'
 import '../styles/MainComponent.css'
-import mainImage from '../images/MainUI.png'
+import mainImage from '../images/mainUI.png'
 import msgIcon from '../images/msgIcon.png'
 import goBtn from '../images/goButton.png'
+import mainBackground from '../images/background2.mp4'
 
 const mainStyle = {
     position: 'absolute',
@@ -90,6 +91,15 @@ const selectStyle = {
     top: '73%',
     left: '9%'
 }
+const scheduleBtnStyle = {
+    position: 'absolute',
+    background: 'transparent',
+    border: 'none',
+    width: '8%',
+    height: '14%',
+    bottom: '14%',
+    left: '15%'
+}
 
 const Months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 const Days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -127,6 +137,10 @@ function MainComponent() {
         history.push('/chats/7pZoVO41Vs6ZvBnl8AFi');
     } 
 
+    const handleEditSchedule = (event) => {
+        alert("Route to calendar component here"); //TODO
+    }
+
 
     if(loading) {
         return <h2>Loading...</h2>
@@ -134,9 +148,9 @@ function MainComponent() {
     else {
         return (
             <div>
-                {/* <video autoPlay muted loop id="background" className='bgStyle'>
-                    <source src={backgroundMp4} type="video/mp4"></source>
-                </video> */}
+                <video autoPlay muted loop id="background" className='bgStyle' style={{width:'100%',height:'100%',objectFit:'cover'}}>
+                    <source src={mainBackground} type="video/mp4"></source>
+                </video>
                 <img src={mainImage} alt="" style={mainStyle}></img>
                 <button onClick={handleLogoutClick} style={lButtonLoc}>Log out</button>
                 <ul style={ULLoc}>
@@ -158,10 +172,13 @@ function MainComponent() {
                 <label className='calStyle' style={dayLoc}> {retrieveDay()} </label>
                 <label className='calStyle' style={cenLoc}> {retrieveGreeting()} </label>
                 <label className='calStyle' style={cenLoc2}> {retrieveTime()} </label>
+                <label className='notification' style={notLoc}> Your next meeting is in 7 days </label>
+                <button onClick={handleEditSchedule} style={scheduleBtnStyle}></button>
                 {/* <label className='notification' style={notLoc}> {this.retrieveNotifications()} </label> */}
+                {/*
                 <select onChange={handleTopicChange} value={selectedTopic} style={selectStyle}>
                         {topics.map((topic, idx) => <option key={idx} value={topic} className='selectOption'>{topic}</option> )}
-                </select>
+                </select>*/}
                 {/* { this.state.meeting ? <div><img src={goBtn} style={mButtonLoc}></img><button onClick={this.startMeeting} style={mButtonLoc}>Go</button></div> : null} */}
             </div>
         );
