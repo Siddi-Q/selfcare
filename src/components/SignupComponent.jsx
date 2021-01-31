@@ -7,6 +7,7 @@ import { db } from '../firebase/firebase';
 import '../styles/Shared.css'
 import '../styles/LoginComponent.css'
 import signupUI from '../images/signupUI.png'
+import signupBackground from '../images/background3.mp4'
 
 const signupStyle = {
     position: 'fixed',
@@ -93,9 +94,9 @@ function SignupComponent() {
 
     return (
         <div>
-            {/* <video autoPlay muted loop id="background" className='bgStyle'>
-                <source src={background} type="video/mp4"></source>
-            </video> */}
+            <video autoPlay muted loop id="background" className='bgStyle' style={{width:'100%',height:'100%',objectFit:'cover'}}>
+                <source src={signupBackground} type="video/mp4"></source>
+            </video>
             <img src={signupUI} alt="" style={signupStyle}></img>
             <form onSubmit={handleSubmit}>
                 <input required type="text" 
